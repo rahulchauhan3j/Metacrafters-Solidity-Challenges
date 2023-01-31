@@ -1,4 +1,4 @@
-# Sample Hardhat Project
+# Metacrafters Solidity Challenges
 
 This project contains solution to Metacrafters challenge solutions for Intermediate Solidity Course
 
