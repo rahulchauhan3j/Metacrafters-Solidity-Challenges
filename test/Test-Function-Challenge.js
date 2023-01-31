@@ -1,11 +1,8 @@
-const {
-  time,
-  loadFixture,
-} = require("@nomicfoundation/hardhat-network-helpers")
+const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers")
 const { assert, expect } = require("chai")
 const { ethers } = require("hardhat")
 
-describe("Lock", function () {
+describe("Function Challenge", function () {
   async function deployFunctionChallengeFixture() {
     const FunctionChallenge = await ethers.getContractFactory(
       "FunctionChallenge"
