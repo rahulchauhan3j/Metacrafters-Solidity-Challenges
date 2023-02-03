@@ -1,9 +1,7 @@
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers")
 const { ethers } = require("hardhat")
 const { assert, expect } = require("chai")
-const {
-  isCallTrace,
-} = require("hardhat/internal/hardhat-network/stack-traces/message-trace")
+
 const { getNamedAccounts } = hre
 
 describe("Test Storage And Memory Contract", async function () {
