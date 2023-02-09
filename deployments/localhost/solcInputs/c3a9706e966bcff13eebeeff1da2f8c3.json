@@ -1,0 +1,50 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/EventsChallenge.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.17;\n\n// As specified in the challenge 4 events have been created and they are tested using javascript (see test folder Test-Events-Challenge.js)\ncontract EventsChallenge {\n  uint256 public totalFunds;\n  address public owner;\n\n  event contractCreated(address indexed _owner, uint256 _funds); // Event for constructor\n  event ownerChanged(address indexed _owner, string message); // Event for the function which assigns a new owner\n  event fundsRecieved(address indexed _from, uint256 _amount); // Event for Fund Recieved\n  event fundsReleased(address indexed _from, uint256 _amount); // Event for Fund Release\n  error notOwner();\n\n  constructor() payable {\n    owner = msg.sender;\n    totalFunds += msg.value;\n    emit contractCreated(owner, msg.value); // Event emitted\n  }\n\n  function changeOwner(address _newOwner) external {\n    if (msg.sender != owner) {\n      revert notOwner();\n    }\n    owner = _newOwner;\n    emit ownerChanged(_newOwner, \"Owner Changed\"); // Event emitted\n  }\n\n  function recieveFunds() external payable {\n    emit fundsRecieved(msg.sender, msg.value); // Event emitted\n  }\n\n  function releaseFunds() external payable {\n    if (msg.sender != owner) {\n      revert notOwner();\n    }\n    totalFunds = 0;\n    uint256 balanceToBeReleased = address(this).balance;\n    (bool success, ) = payable(msg.sender).call{value: address(this).balance}(\n      \"\"\n    );\n\n    require(success, \"transfer failed\");\n    emit fundsReleased(msg.sender, balanceToBeReleased); // Event emitted\n  }\n}\n"
+    },
+    "contracts/FunctionChallenge.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.17;\n\ncontract FunctionChallenge {\n  uint256 totalFunds;\n\n  /* A Pure Function */\n  function calculateSum(uint256 x, uint256 y) public pure returns (uint256) {\n    return x + y;\n  }\n\n  /* A View Function */\n  function viewFunds() public view returns (uint256) {\n    return totalFunds;\n  }\n\n  /* A Payable Function */\n  function addFunds() public payable {\n    totalFunds += msg.value;\n  }\n}\n"
+    },
+    "contracts/GlobalFunctionsChallenge.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.17;\n\n/* msg.value, msg.sender,gasleft() is used in this contract as per challenge. Test cases have been written */\ncontract GlobalFunctionsChallenge {\n  address public lastFundedBy;\n  uint256 public lastFundValue;\n  uint256 public totalFunds;\n\n  error InsufficientFunds();\n  event fundsAdded(address _sender, uint256 _amount, uint256 _gasleft);\n\n  function addFunds() public payable {\n    if (msg.value == 0) {\n      revert InsufficientFunds();\n    }\n\n    totalFunds += msg.value;\n    lastFundValue = msg.value;\n    lastFundedBy = msg.sender;\n\n    emit fundsAdded(msg.sender, lastFundValue, gasleft());\n  }\n}\n"
+    },
+    "contracts/Module1Project.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.17;\n\n// Smart Contract for Module 1 of MetaCrafters Intermediate Solidity Course\n// Requirement - Write a smart contract that implements the\n// require(), assert() and revert() statements.\n\ncontract Module1Project {\n  address public owner;\n  uint256 private sum;\n\n  modifier onlyOwner() {\n    require(msg.sender == owner, \"Not Owner\"); // require implemented\n    _;\n  }\n\n  error gameLost();\n\n  constructor() {\n    owner = msg.sender;\n  }\n\n  function play() external {\n    assert(sum < 10);\n    sum++;\n  }\n\n  function guess(uint256 _sum) external view returns (string memory) {\n    if (sum != _sum) {\n      revert gameLost();\n    }\n\n    return \"You Win!!!\";\n  }\n\n  function reset() external onlyOwner {\n    sum = 0;\n  }\n}\n"
+    },
+    "contracts/StorageAndMemory.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.17;\n\ncontract StorageAndMemory {\n  address public user; // storage variable\n\n  function setUser(address _owner) public {\n    user = _owner; //_owner is memory type variable\n  }\n}\n"
+    },
+    "contracts/UpgradeableContract.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.17;\n\ncontract storeData {\n  struct personData {\n    address addr;\n    string FirstName;\n    string LastName;\n  }\n\n  personData public data;\n\n  function populateData(\n    address _addr,\n    string memory _firstName,\n    string memory _lastName\n  ) public {\n    data = personData(_addr, _firstName, _lastName);\n  }\n}\n\ncontract proxyStoreData {\n  struct personData {\n    address addr;\n    string FirstName;\n    string LastName;\n  }\n\n  personData public data;\n\n  address public contractAddress;\n\n  function populateData(\n    address _addr,\n    string memory _firstName,\n    string memory _lastName\n  ) public {\n    (bool success, ) = contractAddress.delegatecall(\n      abi.encodeWithSignature(\n        \"populateData(address,string,string)\",\n        _addr,\n        _firstName,\n        _lastName\n      )\n    );\n  }\n\n  function setContractAddress(address _contractAddress) public {\n    contractAddress = _contractAddress;\n  }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

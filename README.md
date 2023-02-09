@@ -1,6 +1,6 @@
 # Metacrafters Solidity Challenges
 
-This project contains solution to Metacrafters challenge solutions for Intermediate Solidity Course
+This project contains solution to Metacrafters challenge solutions for Intermediate Solidity Course.
 
 Try running some of the following tasks:
 

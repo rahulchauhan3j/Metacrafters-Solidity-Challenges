@@ -1,0 +1,82 @@
+{
+  "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "setUser",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "user",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x7e8ceb26d260fb6c1a1d52c612c2f4b6daa3f71999c7eb19b8ce66130c3491da",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+    "transactionIndex": 0,
+    "gasUsed": "152557",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x5e8ff0c3034c470673bbda9f5318e80d500103a992df6e19757b3b18632c8587",
+    "transactionHash": "0x7e8ceb26d260fb6c1a1d52c612c2f4b6daa3f71999c7eb19b8ce66130c3491da",
+    "logs": [],
+    "blockNumber": 5,
+    "cumulativeGasUsed": "152557",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "c3a9706e966bcff13eebeeff1da2f8c3",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"setUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"user\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/StorageAndMemory.sol\":\"StorageAndMemory\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/StorageAndMemory.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\npragma solidity ^0.8.17;\\n\\ncontract StorageAndMemory {\\n  address public user; // storage variable\\n\\n  function setUser(address _owner) public {\\n    user = _owner; //_owner is memory type variable\\n  }\\n}\\n\",\"keccak256\":\"0x4bf575e5ab9cd67bd2a3a05fc7e4d25e2c1fc6da7cce335a5c10f24f6f75918b\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506101cc806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80634f8632ba1461003b578063858ced3514610059575b600080fd5b610043610075565b604051610050919061011d565b60405180910390f35b610073600480360381019061006e9190610169565b610099565b005b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000610107826100dc565b9050919050565b610117816100fc565b82525050565b6000602082019050610132600083018461010e565b92915050565b600080fd5b610146816100fc565b811461015157600080fd5b50565b6000813590506101638161013d565b92915050565b60006020828403121561017f5761017e610138565b5b600061018d84828501610154565b9150509291505056fea2646970667358221220cc2c6eea224706f3baa35935a1d4e93f0fceb4a4206bb6378653e51960c1000564736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80634f8632ba1461003b578063858ced3514610059575b600080fd5b610043610075565b604051610050919061011d565b60405180910390f35b610073600480360381019061006e9190610169565b610099565b005b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000610107826100dc565b9050919050565b610117816100fc565b82525050565b6000602082019050610132600083018461010e565b92915050565b600080fd5b610146816100fc565b811461015157600080fd5b50565b6000813590506101638161013d565b92915050565b60006020828403121561017f5761017e610138565b5b600061018d84828501610154565b9150509291505056fea2646970667358221220cc2c6eea224706f3baa35935a1d4e93f0fceb4a4206bb6378653e51960c1000564736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 306,
+        "contract": "contracts/StorageAndMemory.sol:StorageAndMemory",
+        "label": "user",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}
