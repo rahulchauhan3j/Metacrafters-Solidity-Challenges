@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add —dev prettier prettier-plugin-solidity
+  /usr/local/bin/node /usr/local/bin/yarn init
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,15 +14,17 @@ Platform:
   darwin arm64
 
 Trace: 
-  TypeError [ERR_UNESCAPED_CHARACTERS]: https://registry.yarnpkg.com/—dev: Request path contains unescaped characters
-      at new NodeError (node:internal/errors:399:5)
-      at new ClientRequest (node:_http_client:184:13)
-      at Object.request (node:https:360:10)
-      at module.exports.Request.start (/usr/local/lib/node_modules/yarn/lib/cli.js:141452:32)
-      at module.exports.Request.end (/usr/local/lib/node_modules/yarn/lib/cli.js:142211:10)
-      at end (/usr/local/lib/node_modules/yarn/lib/cli.js:141265:14)
-      at Immediate.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141279:7)
-      at process.processImmediate (node:internal/timers:476:21)
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:137150:13)
+      at Interface.emit (node:events:513:28)
+      at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1130:18)
+      at ReadStream.onkeypress (node:internal/readline/interface:270:20)
+      at ReadStream.emit (node:events:513:28)
+      at emitKeys (node:internal/readline/utils:357:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+      at ReadStream.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
 
 npm manifest: 
   {
@@ -53,8 +55,8 @@ npm manifest:
       "hardhat": "^2.12.6",
       "hardhat-deploy": "^0.11.22",
       "hardhat-gas-reporter": "^1.0.9",
-      "prettier": "^2.8.3",
-      "prettier-plugin-solidity": "^1.1.1",
+      "prettier": "^2.8.4",
+      "prettier-plugin-solidity": "^1.1.2",
       "solidity-coverage": "^0.8.2",
       "typechain": "^8.1.0"
     }
