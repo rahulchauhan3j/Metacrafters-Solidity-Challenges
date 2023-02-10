@@ -17,6 +17,7 @@ contract BankApp {
   }
 
   function accountBalance() public view returns (uint256) {
+    require(userExists[msg.sender] == true, "Account doesnt exist");
     return userAccount[msg.sender];
   }
 
