@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
-// As specified in the challenge 4 events have been created and they are tested using javascript (see test folder Test-Events-Challenge.js)
+// As specified in the challenge 4 events have been created and they are tested using javascript
+//(see test folder Test-Events-Challenge.js)
 contract EventsChallenge {
   uint256 public totalFunds;
   address public owner;
