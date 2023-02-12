@@ -14,5 +14,11 @@ module.exports = {
     user: {
       default: 1,
     },
+    user_2: {
+      default: 2,
+    },
+    user_3: {
+      default: 3,
+    },
   },
 }
