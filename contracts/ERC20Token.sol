@@ -11,6 +11,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract ERC20Token is ERC20, ERC20Burnable, Ownable {
   uint8 immutable tokendecimals;
 
+  /// Constructor for ERC20 Token Contract
+  /// @param _name  ERC20 Token Name
+  /// @param _symbol ERC20 Token Symbol
+  /// @param _decimals ERC20 Token Decimal Places
   constructor(
     string memory _name,
     string memory _symbol,
@@ -19,10 +23,12 @@ contract ERC20Token is ERC20, ERC20Burnable, Ownable {
     tokendecimals = _decimals;
   }
 
+  /// Returns Decimal places for token
   function decimals() public view override returns (uint8) {
     return tokendecimals;
   }
 
+  /// Mints Token
   function mint(address to, uint256 amount) public onlyOwner {
     _mint(to, amount);
   }
